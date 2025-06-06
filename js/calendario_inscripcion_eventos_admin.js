@@ -950,13 +950,13 @@ $(document).ready(function () {
   // Mostrar u ocultar contenedor
   $("#finishedEventsTableContainer").toggleClass("hidden");
 
-  /*const finishedTitle = document.getElementById("finishedEventsTitle");
+  const finishedTitle = document.getElementById("finishedEventsTitle");
   if (finishedTitle) {
     finishedTitle.scrollIntoView({
       behavior: "smooth",
       block: "start",
     });
-  }*/
+  }
 
   // Marcar o desmarcar todos los checkboxes visibles en todas las páginas
   /*$("#selectAllCheckbox")
