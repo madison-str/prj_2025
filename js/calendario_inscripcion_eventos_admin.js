@@ -912,8 +912,51 @@ $(document).ready(function () {
   $("#showFinished").on("click", function () {
   let idCounter = 1;
 
+    let finishedTable = $("#finishedEventsTable").DataTable();
+
+    finishedTable.clear().draw();
+
+    $("#eyeIcon-2").toggleClass("fa-eye fa-eye-slash");
+    $("#eyeIcon-2").css(
+      "color",
+      $("#eyeIcon-2").hasClass("fa-eye") ? "#012EDC" : "#f5754C"
+    );
+
+    finishedEvents.forEach((event) => {
+      event.eventName.forEach((eventName, index) => {
+        let tournamentsName = event.tournamentName[index] || "";
+        let status = "FINALIZADO" || "";
+
+        finishedTable.row
+          .add([
+            idCounter++,
+            `${event.startDate.toString().padStart(2, "0")}/${resultado.mes
+              .toString()
+              .padStart(2, "0")}/${resultado.anio} al ${event.endDate
+              .toString()
+              .padStart(2, "0")}/${resultado.mes.toString().padStart(2, "0")}/${
+              resultado.anio
+            }`,
+            tournamentsName,
+            eventName,
+            status,
+          ])
+          .draw(false);
+      });
+    });
+    $("#finishedEventsTableContainer").toggleClass("hidden");
+
+    const finishedTitle = document.getElementById("finishedEventsTitle");
+    if (finishedTitle) {
+      finishedTitle.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  });
+
   // Limpiar tabla antes de cargar nuevos datos
-  const finishedTable = $("#finishedEventsTable").DataTable();
+  /*const finishedTable = $("#finishedEventsTable").DataTable();
   finishedTable.clear();
 
   $("#eyeIcon-2").toggleClass("fa-eye fa-eye-slash");
@@ -974,8 +1017,9 @@ $(document).ready(function () {
     const checkboxes = $(".inscribeCheckbox");
     const allChecked = checkboxes.length === checkboxes.filter(":checked").length;
     $("#selectAllCheckbox").prop("checked", allChecked);
-  });*/
-});
+  });
+  
+//});*/
 
   $("#showOtherEvents").on("click", function () {
     let idCounter = 1;
