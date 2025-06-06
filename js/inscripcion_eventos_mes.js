@@ -79,7 +79,8 @@ meses.forEach((idMes, index) => {
     if (elemento) {
         elemento.addEventListener("click", () => {
             const mes = index + 1;
-            window.location.href = `calendario_inscripcion_eventos_admin.html?mes=${mes}&anio=${anio}`;
+           // window.location.href = `calendario_inscripcion_eventos_admin.html?mes=${mes}&anio=${anio}`;
+           window.location.href = `calendario_inscripcion_eventos.html?mes=${mes}&anio=${anio}`;
         });
     }
 });
