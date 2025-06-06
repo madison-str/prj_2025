@@ -185,7 +185,8 @@ const form = document.querySelector("form");
 
             try {
                 
-                const response = await fetch("https://c986-44-201-249-73.ngrok-free.app/team/getAll", {
+                //const response = await fetch("https://c986-44-201-249-73.ngrok-free.app/team/getAll", {
+                const response = await fetch("http://localhost:8080/team/getAll", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
