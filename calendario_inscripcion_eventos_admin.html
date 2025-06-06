@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calendario de Eventos - Enero 2025</title>
+  <link rel="stylesheet" type="text/css" href="css/calendario_inscripcion_eventos_admin.css" />
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css" />
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+</head>
+
+<body>
+  <div class="header-container">
+
+    <div style="height: 7vw; position: relative">
+      <img id="cintillo" src="img/cintilloMenu.png" alt="Cintillo" />
+    </div>
+
+    <div class="logoDiv">
+      <img id="logo" src="img/logo.png" alt="Logo" onclick="window.location.href='index_autenticado.html'" />
+    </div>
+
+    <div class="user-container">
+      <p style="
+            font-size: 1.2vw;
+            margin-top: 2%;
+            right:27%;
+            color: #1535d6;
+            text-decoration: underline;
+          " onclick="window.location.href='gestion.html'">
+        Gestión
+      </p>
+      <p style="
+            font-size: 1.2vw;
+            margin-top: 2%;
+            right:10%;
+            color: #1535d6;
+            text-decoration: underline;
+          " onclick="window.location.href='inscripcion_eventos_mes.html'">
+        Incripción a Eventos por Mes
+      </p>
+
+      <div id="user-icon" class="user-icon" onclick="toggleUserMenu()"></div>
+    </div>
+  </div>
+
+
+  <div class="user-menu" id="user-menu">
+    <div class="user-menu-header">
+      <p style="font-size: 1vw" id="userName">Nombre del Usuario</p>
+      <p style="font-size: 1vw" id="userRole">Rol del Usuario</p>
+    </div>
+    <div class="user-menu-content">
+      <a href="#" style="font-size: 1vw">Editar Perfil</a>
+      <a href="#" style="font-size: 1vw" onclick="logout()">Cerrar Sesión</a>
+    </div>
+  </div>
+
+  <div style="display: flex; height: 100vh">
+    <div class="calendar-panel">
+      <h1 style="text-align: center; font-size: 24px">
+        Calendario de Eventos
+      </h1>
+      <h2 style="text-align: center; margin-bottom: 50px" id="mes"></h2>
+      <div class="calendar" id="calendar">
+        <div class="day-header">D</div>
+        <div class="day-header">L</div>
+        <div class="day-header">M</div>
+        <div class="day-header">M</div>
+        <div class="day-header">J</div>
+        <div class="day-header">V</div>
+        <div class="day-header">S</div>
+      </div>
+
+      <div class="legend">
+        <div style="margin-top: 30px; font-size: 13px">
+          <div>
+            <span class="circle planned-circle"></span>Eventos Programados
+          </div>
+          <div class="eventsCategory"></div>
+          <div class="clickable" id="planned-Events" style="
+                color: blue;
+                cursor: pointer;
+                text-decoration: underline;
+                margin-top: 5px;
+              ">
+            ver todos
+            <i id="eyeIcon-1" class="fas fa-eye-slash" style="color: #f5754c"></i>
+          </div>
+        </div>
+
+        <div style="margin-top: 30px; font-size: 13px">
+          <div>
+            <span class="circle finished-circle"></span>Eventos Finalizados
+          </div>
+          <div class="eventsCategory"></div>
+          <div class="clickable" id="showFinished" style="
+                color: blue;
+                cursor: pointer;
+                text-decoration: underline;
+                margin-top: 5px;
+              ">
+            ver todos
+            <i id="eyeIcon-2" class="fas fa-eye-slash" style="color: #f5754c"></i>
+          </div>
+        </div>
+
+        <div style="margin-top: 30px; font-size: 13px">
+          <div>
+            <span class="circle otherEvents-circle"></span>Eventos Programados
+            y Finalizados
+          </div>
+          <div>(Otras Categorías)</div>
+          <div class="clickable" id="showOtherEvents" style="
+                color: blue;
+                cursor: pointer;
+                text-decoration: underline;
+                margin-top: 5px;
+              ">
+            ver todos
+            <i id="eyeIcon-3" class="fas fa-eye-slash" style="color: #f5754c"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="events-container">
+      <div class="student-info">
+        <div style="
+              margin: 2vh auto; /* Margen vertical adaptable */
+              width: 25vw; /* Ancho relativo al viewport */
+              min-width: 20vw; /* Evita que sea demasiado pequeño */
+              max-width: 25vw; /* Evita que sea demasiado grande */
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              /*align-items: center;*/
+              border: 0.1vw solid #ccc; /* Borde adaptable */
+              background-color: #f9f9f9;
+              padding: 1.5vw; /* Espaciado interno relativo */
+              border-radius: 0.5vw; /* Bordes redondeados proporcionales */
+              box-shadow: 0.5vw 0.5vw 1vw rgba(0, 0, 0, 0.1); /* Sombra adaptable */
+              font-size: 0.95vw; /* Tamaño de texto relativo */
+            ">
+          <h2 style="margin-bottom: 2%">Datos del Nadador</h2>
+          <div style="text-align: start" id="cedula"></div>
+          <div style="text-align: start" id="nombre"></div>
+          <div style="text-align: start" id="apellido"></div>
+          <div style="text-align: start" id="sexo"></div>
+          <div style="text-align: start" id="edad"></div>
+          <div style="text-align: start" id="fechaNac"></div>
+        </div>
+      </div>
+      <h2 style="margin-top: 50px" id="calendarEventsTitle">
+        Eventos Programados Seleccionados en el Calendario
+        <i class="fas fa-arrow-up" style="color: blue; cursor: pointer; margin-left: 10px" onclick="scrollToTop()"></i>
+        <br /><span class="eventsCategory"></span>
+      </h2>
+      <table id="eventTable" class="display">
+        <thead>
+          <tr>
+            <th style="width: 50px">#</th>
+            <th>Fecha</th>
+            <th>Torneo</th>
+            <th>Evento</th>
+            <th style="width: 50px">Tiempo</th>
+            <th style="width: 50px">Seleccionar</th>
+            <th>Acción</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <button id="clearEvents" class="button-blue">Limpiar Tabla</button>
+      <button id="registerEvent" class="button-orange" disabled>
+        Inscribirse en Evento(s)
+      </button>
+
+      <div id="plannedEventsTableContainer" class="hidden">
+        <h2 id="plannedEventsTitle" style="margin-top: 150px">
+          Listado de Todos los
+          <span style="color: orangered">Eventos Programados </span>
+          <i class="fas fa-arrow-up" style="color: blue; cursor: pointer; margin-left: 10px"
+            onclick="scrollToTop()"></i>
+          <br /><span class="eventsCategory"></span>
+        </h2>
+
+        <table id="plannedEventsTable" class="display">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Fecha</th>
+              <th>Torneo</th>
+              <th>Evento</th>
+              <th>Estado</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <div id="finishedEventsTableContainer" class="hidden">
+        <h2 id="finishedEventsTitle" style="margin-top: 150px">
+          Listado de Todos los
+          <span style="color: orangered">Eventos Finalizados </span>
+          <i class="fas fa-arrow-up" style="color: blue; cursor: pointer; margin-left: 10px"
+            onclick="scrollToTop()"></i>
+          <br /><span class="eventsCategory"></span>
+        </h2>
+
+        <table id="finishedEventsTable" class="display">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Fecha</th>
+              <th>Torneo</th>
+              <th>Evento</th>
+              <th>Estado</th>
+              <!--<th style="text-align: center;">
+                <div style="display: flex; flex-direction: column; align-items: center;">
+                  <input type="checkbox" id="selectAllCheckbox" title="Seleccionar todo" style="margin-bottom: 4px;">
+                  <span>Seleccionar</span>
+                </div>-->
+              </th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <div id="otherEventsTableContainer" class="hidden">
+        <h2 id="otherEventsTitle" style="margin-top: 150px">
+          Listado de Todos los
+          <span style="color: orangered">Eventos Programados y Finalizados
+          </span>
+          <i class="fas fa-arrow-up" style="color: blue; cursor: pointer; margin-left: 10px"
+            onclick="scrollToTop()"></i>
+          <br />
+          (Otras Categorías)
+        </h2>
+
+        <table id="otherEventsTable" class="display">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Fecha</th>
+              <th>Torneo</th>
+              <th>Evento</th>
+              <th>Estado</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <script src="js/calendario_inscripcion_eventos_admin.js"></script>
+
+</body>
+
+</html>

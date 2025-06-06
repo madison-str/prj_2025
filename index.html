@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <title>SumaDeportes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" type="text/css" href="css/index.css">  
+ 
+</head>
+
+<body>
+ 
+  <div class="header-container">
+  
+    <div style="height: 7vw;  
+    position: relative;">
+      <img id="cintillo" src="img/cintilloMenu.png" alt="Cintillo">
+    </div>
+ 
+    <div class="logoDiv">
+      <img id="logo" src="img/logo.png" alt="Logo" onclick="window.location.href='index.html'">
+    </div>
+
+    <div class="user-container" onclick="toggleUserMenu()">    
+      <button type="submit" id="login-button" onclick="window.location.href='iniciar_sesion.html'">Inicia sesión</button>
+      <button type="submit" id="register-button" onclick="window.location.href='registro.html'">Regístrate</button>
+    </div>
+  </div>
+
+
+  <div class="slideshow">
+
+    <ul class="slider">
+
+
+      <li>
+
+        <div id="img_1"></div>
+      </li>
+      <li>
+        <div id="img_2" alt=""></div>
+      </li>
+      <li>
+        <div id="img_3" alt=""></div>
+      </li>
+      <li>
+        <div id="img_4" alt=""></div>
+      </li>
+      <li>
+        <div id="img_5" alt=""></div>
+      </li>
+    </ul>
+
+  </div>
+
+
+  <div id="tituloNosotros">
+
+    <div>
+      <img src="img/ImagenNosotros.png" />
+    </div>
+
+    <div>
+      <p>
+        <strong>En SUMA Deportes</strong>, somos una academia dedicada a fomentar el bienestar a través de la natación.
+        Ofrecemos clases para todas las edades, desde bebés hasta adultos, adaptándonos a los diferentes niveles de
+        habilidad. Nuestro enfoque se basa en la enseñanza integral, donde la técnica, el aprendizaje y los valores del
+        deporte se entrelazan para generar un ambiente positivo y enriquecedor.
+      </p>
+    </div>
+
+  </div>
+
+  <div class="nosotros">
+    <div class="contenido_bloque1">
+      <div id="mision">
+        <img src="img/mision.png" alt="" />
+        <h2>Misión</h2>
+      </div>
+      <div>
+        <p class=""> Generar bienestar físico y emocional a través de la natación,
+          mientras educamos en valores fundamentales como el respeto, la responsabilidad y el esfuerzo.
+          Buscamos impactar positivamente en la vida de nuestros alumnos, proporcionando una experiencia
+          única que fomente su desarrollo tanto en el deporte como en su día a día.
+        </p>
+      </div>
+    </div>
+    <div class="contenido_bloque1">
+      <div id="vision">
+        <img src="img/vision.png" alt="" />
+        <h2>Visión</h2>
+      </div>
+      <div>
+        <p class="">Ser la academia líder en natación, reconocida por su excelencia en la enseñanza,
+          la formación integral de sus alumnos y el impacto positivo en la comunidad. Aspiramos a formar
+          no solo nadadores, sino también personas con valores sólidos y una mentalidad perseverante que
+          los acompañe a lo largo de su vida.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div id="valores">
+    <img src="img/icono_valores.png" />
+    <h2>Valores</h2>
+  </div>
+
+  <div class="nosotros valores">
+    <div class="contenido_bloque2">
+
+      <div id="disciplina">
+        <img src="img/icono_nado.png" alt="" />
+        <h2>Disciplina</h2>
+      </div>
+      <div>
+        <p> Creemos que la constancia y el esfuerzo son
+          esenciales para el crecimiento personal y deportivo.
+        </p>
+      </div>
+
+      <div id="compromiso">
+        <img src="img/icono_compromiso.png" alt="" />
+        <h2>Compromiso</h2>
+      </div>
+      <div>
+        <p> Estamos comprometidos con el desarrollo integral de cada uno
+          de nuestros alumnos, guiándolos en su camino hacia la superación.
+        </p>
+      </div>
+
+      <div id="respeto">
+        <img src="img/icono_respeto.png" alt="" />
+        <h2>Respeto</h2>
+      </div>
+      <div>
+        <p> Valoramos el respeto por uno mismo, los demás y el entorno,
+          creando una atmósfera de armonía y confianza.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="contenido_bloque2">
+
+      <div id="equipo">
+        <img src="img/icono_equipo.png" alt="" />
+        <h2>Trabajo en equipo</h2>
+      </div>
+      <div>
+        <p> Fomentamos la colaboración y el apoyo mutuo, tanto dentro como fuera
+          del agua.
+        </p>
+      </div>
+
+      <div id="diversion">
+        <img src="img/icono_diversion.png" alt="" />
+        <h2>Diversión</h2>
+      </div>
+      <div>
+        <p> Nos aseguramos de que cada clase sea una experiencia
+          divertida y estimulante, donde el aprendizaje sea también una fuente de disfrute.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div id="div_motivacion">
+    <img src="img/motivacion.png"></img>
+    <p>“La natación es un reflejo de la vida. Cada brazada nos recuerda que,
+      aunque el camino sea largo y desafiante, nuestra voluntad puede transformar la resistencia en impulso.
+      El verdadero triunfo no radica sólo en alcanzar la meta, sino en la disciplina y el coraje de nadar hacia ella,
+      sin importar cuán grande sea."
+    </p>
+  </div>
+
+  <footer>   
+      <div id=footer_logo>
+        <img src="img/logo_.png" alt="">
+      </div>
+      <div id="academia">
+        <h2>Academia</h2>
+        <p>¿Cursos y horarios?</p>
+        <p>¿Dónde encontrarnos?</p>
+      </div>
+      <div id="informacion">
+        <h2>Información</h2>       
+        <p>Preguntas frecuentes</p>    
+      </div>
+    
+  </footer>
+
+  <div class="registro">
+    <div>
+      <p><span onclick="window.location.href='iniciar_sesion.html'">
+          Inicia sesión</span> <span>|</span> <span onclick="window.location.href='registro.html'"
+          >Regístrate</span></p>
+    </div>
+    <div id="linea">
+    </div>
+    <div id="creadores">
+      <p>Suma Deportes, RIF J-00000000-0 Todos los derechos
+        reservados.
+        Powered by Lenin Manrique & Erika Díaz
+      </p>
+    </div>
+  </div>
+  <script src="js/jquery-3.1.0.min.js"></script>
+  <script src="js/jquery-ui-1.13.3/external/jquery/jquery.js"></script>
+  <script src="js/jquery-ui-1.13.3/jquery-ui.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>

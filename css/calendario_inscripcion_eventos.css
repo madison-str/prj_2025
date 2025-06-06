@@ -1,0 +1,514 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+input:focus,
+button:focus {
+  outline: none;
+  box-shadow: 0 0 0.5vw rgba(0, 123, 255, 0.5);
+}
+
+* {
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f0f0f0;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: lightgray;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #0056b3;
+  }
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+}
+
+.calendar-panel {
+  width: auto;
+  height: 100vh;
+  overflow-y: auto;
+  background-color: white;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  padding-right: 20px;
+  padding-left: 5px;
+  padding-top: 10px;
+  position: sticky;
+  top: 0;
+}
+
+.calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+  text-align: center;
+  width: 100%;
+}
+
+.day-header {
+  font-weight: bold;
+  padding: 5px;
+  box-sizing: border-box;
+  background-color: lightgray;
+}
+
+.day {
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  box-sizing: border-box;
+  position: relative;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.day.has-event:hover {
+  background-color: #e9f7ef;
+  transform: scale(1.1);
+}
+
+.event {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.planned {
+  background-color: lightgreen;
+}
+
+.finished {
+  background-color: lightgray;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  position: absolute;
+  top: 5px;
+  left: 7px;
+}
+
+.otherEvents {
+  background-color: white;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  position: absolute;
+  top: 5px;
+  left: 35px;
+  border: 1px solid black;
+}
+
+.selected {
+  background-color: green;
+}
+
+.events-container {
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-right: 5px;
+  flex-grow: 1;
+  text-align: center;
+  overflow-y: auto;
+}
+
+.hidden {
+  display: none;
+}
+
+.dataTables_wrapper {
+  margin-bottom: 20px;
+}
+
+.dataTables_wrapper .dataTables_length {
+  margin-bottom: 15px;
+}
+
+table {
+  margin: 20px auto;
+  width: 90%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 10px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+.legend {
+  margin-top: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.legend .circle {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+.legend .planned-circle {
+  background-color: lightgreen;
+}
+
+.legend .finished-circle {
+  background-color: lightgray;
+}
+
+.legend .otherEvents-circle {
+  background-color: white;
+  border: 1px solid black;
+}
+
+.button-blue {
+  background-color: #012edc;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  margin: 10px;
+}
+
+.button-orange {
+  background-color: #f5754c;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  margin: 10px;
+}
+
+.user-container {
+  display: flex;
+  justify-content: space-between;
+  height: auto;
+  margin-left: 2%;
+  cursor: pointer;
+}
+
+.user-icon {
+  width: 4vw;
+  height: 4vw;
+  background-color: #f36621;
+  color: white;
+  font-size: 1.5vw;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+#img,
+.user-container p {
+  position: absolute;
+  top: 0px;
+  width: auto;
+  z-index: 100;
+  margin-top: 0.5%;
+  box-sizing: border-box;
+  right: 5%;
+}
+
+#user-icon {
+  position: absolute;
+  top: 0px;
+  z-index: 100;
+  margin-top: 0.7%;
+  box-sizing: border-box;
+  right: 5%;
+}
+
+.user-menu {
+  display: none;
+  position: absolute;
+  right: 1%;
+  min-width: 13%;
+  max-width: 13%;
+  top: 5.4vw;
+  background-color: white;
+  border-radius: 0.5vw;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  padding-bottom: 1%;
+  z-index: 10000;
+}
+
+.user-menu-header {
+  background-color: #f2f2f2;
+  padding: 1.5vw;
+  color: #7f7f7f;
+  text-align: center;
+  font-weight: lighter;
+}
+
+.user-menu-content {
+  padding: 1vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-menu-content a {
+  text-decoration: none;
+  color: #7f7f7f;
+  padding: 0.7vw;
+  text-align: center;
+  border-radius: 0.3vw;
+  margin-top: 2%;
+  transition: background 0.3s ease;
+}
+
+.user-menu-content a:hover {
+  background: #f2f2f2;
+}
+
+#img_1 {
+  width: 100%;
+  height: 90%;
+  background-image: url("../img/nadadora_1.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#img_2 {
+  width: 100%;
+  height: 90%;
+  background-image: url("../img/nadadora_2.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#img_3 {
+  width: 100%;
+  height: 90%;
+  background-image: url("../img/nadador_3.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#img_4 {
+  width: 100%;
+  height: 90%;
+  background-image: url("../img/nadadores_1.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#img_5 {
+  width: 100%;
+  height: 90%;
+  background-image: url("../img/nadadores_2.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  image-rendering: crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
+}
+
+.slideshow {
+  position: relative;
+  height: 100%;
+}
+
+.slider li img {
+  width: 100%;
+  height: 100%;
+  width: max-content;
+}
+
+.slider li,
+ul {
+  width: 100%;
+  height: 100%;
+}
+
+#cintillo {
+  padding: 0.2%;
+  width: 100%;
+  height: auto;
+  box-shadow: 0vw 0.35vw 0.7vw rgba(0, 0, 0, 0.5);
+  margin-bottom: 0.5%;
+  position: absolute;
+}
+
+.logoDiv {
+  display: flex;
+  justify-content: space-between;
+  height: auto;
+  margin-left: 2%;
+  cursor: pointer;
+}
+
+#logo {
+  position: absolute;
+  top: 0px;
+  width: 15%;
+  z-index: 100;
+  margin-top: 0.5%;
+}
+
+.buttons {
+  margin-top: 2%;
+  display: flex;
+  width: 20%;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+}
+
+#login-button:hover {
+  background-color: #012ddc49;
+}
+
+#register-button:hover {
+  background-color: #012ddcd1;
+}
+
+#login-button {
+  width: 50%;
+  padding: 3% 5%;
+  margin-right: 2%;
+  background-color: white;
+  color: #012edc;
+  border: 0.3vh solid #012edc;
+  border-radius: 0.3vw;
+  font-size: 1vw;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+#register-button {
+  width: 50%;
+  padding: 3% 5%;
+  margin-right: 2%;
+  background-color: #012edc;
+  color: white;
+  border: none;
+  border-radius: 0.3vw;
+  font-size: 1vw;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.boton-gestion:hover {
+  transform: scale(1.02);
+  box-shadow: 0vw 0vw 1vw rgba(0, 0, 0, 0.6);
+}
+
+footer {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 6%;
+  border-top: 0.2vw solid #012edc;
+  height: auto;
+}
+
+#footer_logo {
+  width: 20%;
+  display: flex;
+  align-items: center;
+  height: auto;
+}
+
+#footer_logo img {
+  width: 100%;
+}
+
+footer #academia {
+  width: 25%;
+  margin-top: 6%;
+  margin-bottom: 6%;
+}
+
+footer #academia h2 {
+  color: #012edc;
+  margin-bottom: 12%;
+  font-size: 1.5vw;
+}
+
+footer #academia p {
+  margin-bottom: 10%;
+  font-size: 1.3vw;
+}
+
+footer #informacion {
+  width: 35%;
+  margin-top: 6%;
+  margin-bottom: 6%;
+}
+
+footer #informacion h2 {
+  color: #012edc;
+  margin-bottom: 8%;
+  font-size: 1.5vw;
+}
+
+footer #informacion p {
+  margin-bottom: 8%;
+  font-size: 1.3vw;
+}
+
+.registro {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.registro p {
+  color: #012edc;
+  margin-bottom: 0.5%;
+  font-size: 1.15vw;
+}
+
+.registro p span {
+  cursor: pointer;
+}
+
+.registro #linea {
+  border: 0.1vw solid #d1d1d1;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+.registro #creadores p {
+  color: #7f7f7f;
+  margin-top: 0.5%;
+  margin-bottom: 0.5%;
+  font-size: 1.05vw;
+}

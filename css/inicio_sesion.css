@@ -1,0 +1,295 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html{
+  height:100%
+}
+
+body {
+  height:100%;
+  overflow-x: hidden;
+}
+.error {
+  color: red;
+  font-size: 0.95vw;
+  margin-left: 2%;
+}
+
+.user-container {
+  display: flex;
+  position: absolute;
+  right: 1%;
+  top: 3vw;
+  transform: translateY(-50%);  
+  width: 20%;
+  z-index: 1;
+}
+
+#cintillo {
+  padding: 0.2%;
+  width: 100vw;
+  height: auto;
+  box-shadow: 0vw 0.35vw 0.7vw rgba(0, 0, 0, 0.5);
+  margin-bottom: 0.5%;
+  position: absolute;
+}
+
+.logoDiv {
+  display: flex;
+  justify-content: space-between;
+  height: auto;
+  margin-left: 2%;
+  cursor: pointer;
+}
+
+#logo {
+  position: absolute;
+  top: 0px;
+  width: 15%;
+  z-index: 100;
+  margin-top: 0.5%;
+}
+
+.buttons {
+  margin-top: 2%;
+  display: flex;
+  width: 20%;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  /*z-index: 6000;*/
+}
+
+#login-button:hover {
+  background-color: #012ddc49;
+}
+
+#register-button:hover {
+  background-color: #012ddcd1;
+}
+
+#login-button {
+  width: 50%;
+  padding: 3% 5%;
+  margin-right: 2%;
+  background-color: white;
+  color: #012edc;
+  border: 0.3vh solid #012edc;
+  border-radius: 0.3vw;
+  font-size: 1vw;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+#register-button {
+  width: 50%;
+  padding: 3% 5%;
+  margin-right: 2%;
+  background-color: #012edc;
+  color: white;
+  border: none;
+  border-radius: 0.3vw;
+  font-size: 1vw;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.contenido_bloque1 {
+  width: 45%;
+}
+
+.contenido_bloque1 img {
+  width: 100%;
+}
+
+.contenido_bloque2 {
+  margin: 8% auto 10% auto;
+}
+
+.contenido_bloque2 #titulo_registro {
+  margin-bottom: 20%;
+}
+
+.contenido_bloque2 #titulo_registro p {
+  font-size: 2.5vw;
+  text-align: center;
+}
+
+.contenido_bloque2 #correo_electronico {
+  font-size: 1.1vw;
+}
+
+.contenido_bloque2 #contraseña {
+  margin-bottom: 5%;
+  font-size: 1.1vw;
+}
+
+.contenido_bloque2 #cuadro {
+  background-color: #f2f2f2;
+  height: 18%;
+  width: 75%;
+  margin: 0 auto;
+  margin-top: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 15%;
+}
+
+.contenido_bloque2 #cuadro p {
+  font-size: 1.1vw;
+}
+
+.contenido_bloque2 #cuadro p span {
+  color: #012edc;
+  font-weight: bold;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.formulario_incioSesion {
+  display: flex;
+}
+
+form {
+  max-width: 75%;
+  margin: 0px auto;
+  font-family: Arial, sans-serif;
+}
+
+label {
+  display: block;
+  margin-top: 5%;
+  margin-bottom: 2%;
+  color: #7f7f7f;
+}
+
+input:focus {
+  border: 0.1vw solid #007bff !important;
+  outline: none;
+  box-shadow: 0 0 0.5vw rgba(0, 123, 255, 0.5);
+}
+
+button:focus {
+  outline: none;
+  box-shadow: 0 0 0.5vw rgba(0, 123, 255, 0.5);
+}
+
+input[type="email"],
+input[type="password"] {
+  height: 2.5vw;
+  width: 100%;
+  padding: 2%;
+  box-sizing: border-box;
+  border: 0.15vw solid #ccc;
+  border-radius: 0.2vw;
+  font-size: 1vw;
+}
+
+#div-botonInicio {
+  position: relative;
+}
+
+.boton-inicio {
+  position: absolute;
+  background-color: #012edc;
+  color: #ffffff;
+  border: none;
+  padding: 2%;
+  cursor: pointer;
+  font-size: 1.1vw;
+  width: 100%;
+}
+
+.boton-inicio:hover {
+  opacity: 0.9;
+}
+
+footer {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 6%;
+  border-top: 0.2vw solid #012edc;
+  height: auto;
+}
+
+#footer_logo {
+  width: 20%;
+  display: flex;
+  align-items: center;
+  height: auto;
+}
+
+#footer_logo img {
+  width: 100%;
+}
+
+footer #academia {
+  width: 25%;
+  margin-top: 6%;
+  margin-bottom: 6%;
+}
+
+footer #academia h2 {
+  color: #012edc;
+  margin-bottom: 12%;
+  font-size: 1.5vw;
+}
+
+footer #academia p {
+  margin-bottom: 10%;
+  font-size: 1.3vw;
+}
+
+footer #informacion {
+  width: 35%;
+  margin-top: 6%;
+  margin-bottom: 6%;
+}
+
+footer #informacion h2 {
+  color: #012edc;
+  margin-bottom: 8%;
+  font-size: 1.5vw;
+}
+
+footer #informacion p {
+  margin-bottom: 8%;
+  font-size: 1.3vw;
+}
+
+.registro {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.registro p {
+  color: #012edc;
+  margin-bottom: 0.5%;
+  font-size: 1.15vw;
+}
+
+.registro p span {
+  cursor: pointer;
+}
+
+.registro #linea {
+  border: 0.1vw solid #d1d1d1;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+.registro #creadores p {
+  color: #7f7f7f;
+  margin-top: 0.5%;
+  margin-bottom: 0.5%;
+  font-size: 1.05vw;
+}

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <title>SumaDeportes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="css/registro.css"> 
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/es.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+  
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <style>
+        .error {
+            color: red;
+            font-size: 0.95vw;
+            margin-left: 2%;
+                                  
+        }
+
+        .user-container {
+
+            display: flex;
+            position: absolute;
+            right: 1%;
+            top: 3vw;
+            transform: translateY(-50%);            
+            width: 20%;
+            z-index: 1;
+        }
+
+        .swal2-container {
+            z-index: 99999 !important;  
+          }
+
+        
+          .spinner {
+            display: none; 
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;  
+          }
+          
+      
+          .loader {
+            
+            border: 2.5vw solid #f3f3f3;
+            border-top: 2.5vw solid #3498db;
+            border-radius: 50%;
+            width: 10vw;   
+            height: 10vw;           
+            animation: spin 2s linear infinite;
+          }
+      
+          @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+          }
+    </style>
+
+</head>
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+        
+        console.time("Flatpickr Init");
+        const fechaInput = flatpickr('#fechaNacimiento', {           
+            dateFormat: "Y-m-d", 
+            altInput: true, 
+            altFormat: "d/m/Y",
+            defaultDate: null,
+            minDate: "1925-01-01",            
+            disableMobile: true, 
+            locale: "es",
+            onChange: (selectedDates, dateStr, instance) => {                
+                let dateObj = selectedDates[0];                
+            }
+        });
+
+        console.timeEnd("Flatpickr Init");
+
+        
+        document.getElementById('calendarButton').addEventListener('click', function () {
+            fechaInput.open();  
+        });
+
+        $('#tipoDocumento').select2();
+    });
+
+
+</script>
+
+
+<body>
+
+    
+    <div class="header-container">        
+        <div style="height: 7vw;  
+        position: relative;">
+            <img id="cintillo" src="img/cintilloMenu.png" alt="Cintillo">
+        </div>        
+        <div class="logoDiv">
+            <img id="logo" src="img/logo.png" alt="Logo" onclick="window.location.href='index.html'">
+        </div>
+    
+        <div class="user-container" onclick="toggleUserMenu()">
+            <button type="submit" id="login-button" onclick="window.location.href='iniciar_sesion.html'">Inicia
+                sesión</button>
+            <button type="submit" id="register-button"
+                onclick="window.location.href='registro.html'">Regístrate</button>
+        </div>
+    </div>
+
+
+    <div class="formulario_registro">
+
+        <div class="contenido_bloque1">
+            <img src="img/reg_.png" alt="" />
+        </div>
+
+        <div class="contenido_bloque2">
+            <div id="titulo_registro">
+                <p>Regístrate y comienza a sumar con nosotros</p>
+            </div>
+            <div>
+                <form id="form-registro">
+                    <div>
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" id="nombre" name="nombre" maxlength="45">
+                        <span class="error" id="errorNombre"></span>
+                    </div>
+                    <div>
+                        <label for="apellido">Apellido:</label>
+                        <input type="text" id="apellido" name="apellido" maxlength="45">
+                        <span class="error" id="errorApellido"></span>
+                    </div>
+                    <div>
+                        <label style="color:#7F7F7F">Fecha de Nacimiento:</label>
+
+                        <div class="input-group">                            
+                            <input type="text" id="fechaNacimiento" name="fechaNacimiento" data-input
+                                class="form-control">                           
+                            <span class="input-group-text" id="calendarButton">
+                                <i class="fas fa-calendar-alt" style="color:gray"></i>
+                            </span>
+                           
+                        </div>
+                         
+                    </div>
+                    <div class="documento-container">
+                        <div>
+                            <label for="tipoDocumento">Tipo:</label>
+                            <select id="tipoDocumento" name="tipoDocumento">
+                                <option value="E">E</option>
+                                <option value="P">P</option>
+                                <option value="V" selected>V</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="numeroDocumento">Número de Documento:</label>
+                            <input type="text" id="numeroDocumento" name="numeroDocumento" maxlength="10">
+                            <span class="error" id="errorDocumento"></span>
+                        </div>
+                    </div>
+                    <div id="correo_electronico">
+                        <label for="correo">Correo electrónico:</label>
+                        <input type="email" id="correo" name="correo" maxlength="100">
+                        <span id="errorCorreo" class="error"></span>
+                    </div>
+                    <div id="boton_registro">
+                        <button type="submit" class="boton-registro">Regístrate</button>
+                    </div>
+                </form>
+            </div>
+            <div id="spinner" class="spinner">
+                <div class="loader"></div>
+            </div>
+            <div id="cuadro">
+                <p>¿Ya tienes una cuenta?&nbsp;<span onclick="window.location.href='iniciar_sesion.html'">Inicia
+                        sesión</span></p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div id=footer_logo>
+            <img src="img/logo_.png" alt="">
+        </div>
+        <div id="academia">
+            <h2>Academia</h2>
+            <p>¿Cursos y horarios?</p>
+            <p>¿Dónde encontrarnos?</p>
+        </div>
+        <div id="informacion">
+            <h2>Información</h2>
+            <p>Preguntas frecuentes</p>
+        </div>
+    </footer>
+    <div class="registro">
+        <div>
+            <p><span onclick="window.location.href='iniciar_sesion.html'">
+                    Inicia sesión</span> <span>|</span> <span
+                    onclick="window.location.href='registro.html'">Regístrate</span></p>
+        </div>
+        <div id="linea">
+        </div>
+        <div id="creadores">
+            <p>Suma Deportes, RIF J-00000000-0 Todos los derechos
+                reservados.
+                Powered by Lenin Manrique & Erika Díaz
+            </p>
+        </div>
+    </div>
+    <script src="js/registro.js"></script>
+    
+</body>
+
+</html>

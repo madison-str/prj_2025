@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <title>SumaDeportes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/inscripcion_eventos_mes.css">
+
+</head>
+
+
+<body>
+    
+    <div class="header-container">
+
+        <div style="height: 7vw; position: relative">
+            <img id="cintillo" src="img/cintilloMenu.png" alt="Cintillo" />
+        </div>
+
+        <div class="logoDiv">
+            <img id="logo" src="img/logo.png" alt="Logo" onclick="window.location.href='index_autenticado.html'" />
+        </div>
+
+        <div class="user-container">
+            <p style="
+                font-size: 1.2vw;
+                margin-top: 2%;
+                color: #1535d6;
+                text-decoration: underline;
+              " onclick="window.location.href='gestion.html'">
+                Gestión
+            </p>
+            <div id="user-icon" class="user-icon" onclick="toggleUserMenu()"></div>
+        </div>
+    </div>
+
+
+    <div class="user-menu" id="user-menu">
+        <div class="user-menu-header">
+            <p style="font-size:1vw" id="userName">Nombre del Usuario</p>
+            <p style="font-size:1vw" id="userRole">Rol del Usuario</p>
+        </div>
+        <div class="user-menu-content">
+            <a href="#" style="font-size:1vw">Editar Perfil</a>
+            <a href="#" style="font-size:1vw" onclick="logout()">Cerrar Sesión</a>
+        </div>
+    </div>
+
+
+    <div id="titulo" style="text-align:center; margin-top:7%; margin-bottom:8%">
+        <img src="img/titulo_calendario.png" style="width: 75%; height: 75%; object-fit: contain;">
+    </div>
+
+    <div class="divs-gestion" style="display:flex; justify-content:space-evenly; margin-top:4%; margin-bottom:8%">
+
+        <div class="boton-gestion" id="enero" style="height:11vw; width:18%; background-color:white; border-radius:1vw; box-shadow: 0vw 0vw 0.70vw rgba(0, 0, 0, 0.5); display: flex; align-items: center; 
+        justify-content: center;transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer;"
+            onclick="window.location.href='registro_academia.html'">
+            <img src="img/enero.png" style="width: 95%; height: 95%; object-fit: contain;">
+        </div>
+        <div class="boton-gestion" id="febrero" style="height:11vw; width:18%; background-color:white; border-radius:1vw; box-shadow: 0vw 0vw 0.70vw rgba(0, 0, 0, 0.5); display: flex; align-items: center; 
+        justify-content: center;transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer;">
+            <img src="img/febrero.png" style="width: 95%; height: 95%; object-fit: contain;">
+        </div>
+        <div class="boton-gestion" id="marzo" style="height:11vw; width:18%; background-color:white; border-radius:1vw; box-shadow: 0vw 0vw 0.70vw rgba(0, 0, 0, 0.5); display: flex; align-items: center; 
+        justify-content: center; transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer;">
+            <img src="img/marzo.png" style="width: 95%; height: 95%; object-fit: contain;">
+        </div>
+        <div class="boton-gestion" id="abril" style="height:11vw; width:18%; background-color:white; border-radius:1vw; box-shadow: 0vw 0vw 0.70vw rgba(0, 0, 0, 0.5); display: flex; align-items: center; 
+        justify-content: center; transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer;">
+            <img src="img/abril.png" style="width: 95%; height: 95%; object-fit: contain;">
+        </div>
+
+
+    </div>
+
+    <div class="divs-gestion" style="display:flex; justify-content:space-evenly; margin-top:4%; margin-bottom:8%">
+
+        <div class="boton-gestion" id="mayo" style="height:11vw; width:18%; background-color:white; border-radius:1vw; box-shadow: 0vw 0vw 0.70vw rgba(0, 0, 0, 0.5); display: flex; align-items: center; 
+    justify-content: center;transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer;"
+            onclick="window.location.href='registro_academia.html'">
+            <img src="img/mayo.png" style="width: 95%; height: 95%; object-fit: contain;">
+        </div>
+        <div class="boton-gestion" id="junio" style="height:11vw; width:18%; background-color:white; border-radius:1vw; box-shadow: 0vw 0vw 0.70vw rgba(0, 0, 0, 0.5); display: flex; align-items: center; 
+    justify-content: center;transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer;">
+            <img src="img/junio.png" style="width: 95%; height: 95%; object-fit: contain;">
+        </div>
+        <div class="boton-gestion" id="julio" style="height:11vw; width:18%; background-color:white; border-radius:1vw; box-shadow: 0vw 0vw 0.70vw rgba(0, 0, 0, 0.5); display: flex; align-items: center; 
+    justify-content: center; transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer;">
+            <img src="img/julio.png" style="width: 95%; height: 95%; object-fit: contain;">
+        </div>
+        <div class="boton-gestion" id="agosto" style="height:11vw; width:18%; background-color:white; border-radius:1vw; box-shadow: 0vw 0vw 0.70vw rgba(0, 0, 0, 0.5); display: flex; align-items: center; 
+    justify-content: center; transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer;">
+            <img src="img/agosto.png" style="width: 95%; height: 95%; object-fit: contain;">
+        </div>
+
+    </div>
+    <div class="divs-gestion" style="display:flex; justify-content:space-evenly; margin-top:4%; margin-bottom:8%">
+
+        <div class="boton-gestion" id="septiembre" style="height:11vw; width:18%; background-color:white; border-radius:1vw; box-shadow: 0vw 0vw 0.70vw rgba(0, 0, 0, 0.5); display: flex; align-items: center; 
+    justify-content: center;transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer;"
+            onclick="window.location.href='registro_academia.html'">
+            <img src="img/septiembre.png" style="width: 95%; height: 95%; object-fit: contain;">
+        </div>
+        <div class="boton-gestion" id="octubre" style="height:11vw; width:18%; background-color:white; border-radius:1vw; box-shadow: 0vw 0vw 0.70vw rgba(0, 0, 0, 0.5); display: flex; align-items: center; 
+    justify-content: center;transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer;">
+            <img src="img/octubre.png" style="width: 95%; height: 95%; object-fit: contain;">
+        </div>
+        <div class="boton-gestion" id="noviembre" style="height:11vw; width:18%; background-color:white; border-radius:1vw; box-shadow: 0vw 0vw 0.70vw rgba(0, 0, 0, 0.5); display: flex; align-items: center; 
+    justify-content: center; transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer;">
+            <img src="img/noviembre.png" style="width: 95%; height: 95%; object-fit: contain;">
+        </div>
+        <div class="boton-gestion" id="diciembre" style="height:11vw; width:18%; background-color:white; border-radius:1vw; box-shadow: 0vw 0vw 0.70vw rgba(0, 0, 0, 0.5); display: flex; align-items: center; 
+    justify-content: center; transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer;">
+            <img src="img/diciembre.png" style="width: 95%; height: 95%; object-fit: contain;">
+        </div>
+
+    </div>
+
+    <footer>
+        <div id=footer_logo>
+            <img src="img/logo_.png" alt="">
+        </div>
+        <div id="academia">
+            <h2>Academia</h2>
+            <p>¿Cursos y horarios?</p>
+            <p>¿Dónde encontrarnos?</p>
+        </div>
+        <div id="informacion">
+            <h2>Información</h2>
+            <p>Preguntas frecuentes</p>
+        </div>
+
+    </footer>
+
+    <div class="registro">
+        <div id="linea">
+        </div>
+        <div id="creadores">
+            <p>Suma Deportes, RIF J-00000000-0 Todos los derechos
+                reservados.
+                Powered by Lenin Manrique & Erika Díaz
+            </p>
+        </div>
+    </div>
+    <script src="js/jquery-3.1.0.min.js"></script>
+    <script src="js/jquery-ui-1.13.3/external/jquery/jquery.js"></script>
+    <script src="js/jquery-ui-1.13.3/jquery-ui.min.js"></script>
+    <script src="js/inscripcion_eventos_mes.js"></script>
+
+</body>
+
+</html>

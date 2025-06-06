@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <title>SumaDeportes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="css/inicio_sesion.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+         
+</head>
+
+<body>
+
+    <div class="header-container">       
+        <div style="height: 7vw;  
+        position: relative;">
+            <img id="cintillo" src="img/cintilloMenu.png" alt="Cintillo">
+        </div>
+        
+        <div class="logoDiv">
+            <img id="logo" src="img/logo.png" alt="Logo" onclick="window.location.href='index.html'">
+        </div>
+     
+        <div class="user-container" onclick="toggleUserMenu()">
+            <button type="submit" id="login-button" onclick="window.location.href='iniciar_sesion.html'">Inicia
+                sesión</button>
+            <button type="submit" id="register-button"
+                onclick="window.location.href='registro.html'">Regístrate</button>
+        </div>
+    </div>
+
+
+    <div class="formulario_incioSesion">
+
+        <div class="contenido_bloque1">
+            <img src="img/clavado_.png" alt="" />
+        </div>
+
+        <div class="contenido_bloque2">
+            <div id="titulo_registro">
+                <p>Inicia sesión y súmate a nosotros</p>
+            </div>
+            <div>
+                <form id="loginForm">
+                   
+                        <div id="correo_electronico">
+                            <label for="correo">Correo electrónico:</label>
+                            <input type="email" id="correo" name="correo" maxlength="100">
+                            <span id="errorCorreo" class="error"></span>
+                        </div>
+                    
+                        <div id="contraseña">
+                            <label for="contrasena">Contraseña:</label>
+                            <div class="password-wrapper" style="position: relative;">
+                                <input type="password" id="contrasena" name="contrasena" maxlength="8"
+                                    style="height: 2.5vw; width: 100%; padding: 2%; box-sizing: border-box; border: 0.15vw solid #ccc; border-radius: 0.2vw; font-size: 1vw;">
+
+                                <i class="fa-solid fa-eye-slash toggle-password" data-target="contrasena"
+                                    style="position: absolute; top: 50%; right: 2%; transform: translateY(-50%); cursor: pointer; color:blue"></i>
+                            </div>
+                            <span class="error" id="errorContrasena"></span>
+                        </div>
+                        <div id="div-botonInicio">
+                            <button type="submit" id="btnLogin" class="boton-inicio">Inicia sesión</button>
+                        </div>
+                    
+                </form>
+            </div>
+            <div id="cuadro">
+                <p>¿No tienes una cuenta?&nbsp;<span onclick="window.location.href='registro.html'">Regístrate</span>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div id=footer_logo>
+            <img src="img/logo_.png" alt="">
+        </div>
+        <div id="academia">
+            <h2>Academia</h2>
+            <p>¿Cursos y horarios?</p>
+            <p>¿Dónde encontrarnos?</p>
+        </div>
+        <div id="informacion">
+            <h2>Información</h2>
+            <p>Preguntas frecuentes</p>
+        </div>
+    </footer>
+    <div class="registro">
+        <div>
+            <p><span onclick="window.location.href='iniciar_sesion.html'">
+                    Inicia sesión</span> <span>|</span> <span
+                    onclick="window.location.href='registro.html'">Regístrate</span></p>
+        </div>
+        <div id="linea">
+        </div>
+        <div id="creadores">
+            <p>Suma Deportes, RIF J-00000000-0 Todos los derechos
+                reservados.
+                Powered by Lenin Manrique & Erika Díaz
+            </p>
+        </div>
+    </div>
+    <script src="js/inicio_sesion.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <title>SumaDeportes - Registro de Pago</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="css/registro_pago_inscripcion.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+   
+</head>
+
+<body>
+    <div class="header-container">
+    
+        <div style="height: 7vw; position: relative">
+            <img id="cintillo" src="img/cintilloMenu.png" alt="Cintillo" />
+        </div>
+      
+        <div class="logoDiv">
+            <img id="logo" src="img/logo.png" alt="Logo" onclick="window.location.href='index_autenticado.html'" />
+        </div>
+       
+        <div class="user-container">
+            <p style="
+                  font-size: 1.2vw;
+                  margin-top: 2%;
+                  right:27%;
+                  color: #1535d6;
+                  text-decoration: underline;
+                " onclick="window.location.href='gestion.html'">
+                Gestión
+            </p>
+            <p style="
+                  font-size: 1.2vw;
+                  margin-top: 2%;
+                  right:10%;
+                  color: #1535d6;
+                  text-decoration: underline;
+                " onclick="window.location.href='inscripcion_eventos_mes.html'">
+                Inscripción a Eventos por Mes
+            </p>
+
+            <div id="user-icon" class="user-icon" onclick="toggleUserMenu()"></div>
+        </div>
+    </div>
+
+    <div class="user-menu" id="user-menu">
+        <div class="user-menu-header">
+            <p style="font-size: 1vw" id="userName">Nombre del Usuario</p>
+            <p style="font-size: 1vw" id="userRole">Rol del Usuario</p>
+        </div>
+        <div class="user-menu-content">
+            <a href="#" style="font-size: 1vw">Editar Perfil</a>
+            <a href="#" style="font-size: 1vw" onclick="logout()">Cerrar Sesión</a>
+        </div>
+    </div>
+
+    <h1 style="text-align: center; margin-top: 5%; margin-bottom: 5%; font-size: 2.5vw; font-weight: lighter;">
+        Registro de Pago de Inscripción
+    </h1>
+
+   
+    <div class="payment-method">
+        <h2>Seleccione el método que utilizó para efectuar el pago</h2>
+        <input type="radio" id="pagoMovilRadio" name="paymentMethod" value="pagoMovil"
+            onclick="mostrarSeccion('pagoMovil')">
+        <label for="pagoMovilRadio">Pago Móvil</label>
+        <span class="error" id="errorPagoMovilRadio"></span>
+        <input type="radio" id="transferenciaRadio" name="paymentMethod" value="transferencia"
+            onclick="mostrarSeccion('transferencia')">
+        <label for="transferenciaRadio">Transferencia Bancaria</label>
+        <span class="error" id="errorTransferenciaRadio"></span>
+        <input type="radio" id="zelleRadio" name="paymentMethod" value="zelle" onclick="mostrarSeccion('zelle')">
+        <label for="zelleRadio">Zelle</label>
+        <span class="error" id="errorZelleRadio"></span>
+        <div class="form-group">
+        <label for="comprobante">Subir Comprobante de Pago (PDF/JPG)</label>
+        <input type="file" id="comprobante" accept=".pdf, .jpg, .jpeg" />
+        <span id="comprobante-error" class="error"></span>
+</div>
+    </div>
+
+    
+    <form class="form-container" id="payment-form">
+    
+        <div id="pagoMovilSection" class="payment-section">
+            <h3>Pago Móvil</h3>
+            <div class="form-group">
+                <label for="bank">Banco:</label>
+                <select id="bank" name="bank">
+                    <option value="">Seleccione una opción</option>
+                    <option value="BancoDeVenezuela">0102 - BANCO DE VENEZUELA</option>
+                    <option value="100%Banco">0156 - 100% BANCO</option>
+                    <option value="BancaAmiga">0172 - BANCAMIGA BANCO UNIVERSAL C.A.</option>
+                    <option value="Bancaribe">0114 - BANCARIBE</option>
+                    <option value="BancoActivo">0171 - BANCO ACTIVO</option>
+                    <option value="BancoAgricolaDeVzla">0166 - BANCO AGRICOLA DE VENEZUELA</option>
+                    <option value="BancoCaroni">0128 - BANCO CARONI</option>
+                    <option value="BancoDelTesoro">0163 - BANCO DEL TESORO</option>
+                    <option value="BancoDigitalDeLosTrabajadores">0175 - BANCO DIGITAL DE LOS TRABAJADORES, BANCO
+                        UNIVERSAL</option>
+                    <option value="BancoExterior">0175 - BANCO EXTERIOR</option>
+                    <option value="BancoFondoComun">0151 - BANCO FONDO COMUN</option>
+                    <option value="BancoInternacionalDeDesarrollo">0173 - BANCO INTERNACIONAL DE DESARROLLO</option>
+                    <option value="BancoMercantil">0105 - BANCO MERCANTIL</option>
+                    <option value="BancoNacionalDeCredito">0191 - BANCO NACIONAL DE CREDITO</option>
+                    <option value="BancoPlaza">0138 - BANCO PLAZA</option>
+                    <option value="BancoSofitasa">0137 - BANCO SOFITASA</option>
+                    <option value="BancoVenezolanoDeCredito">0104 - BANCO VENEZOLANO DE CREDITO</option>
+                    <option value="Bancrecer">0168 - BANCRECER</option>
+                    <option value="Banesco">0134 - BANESCO</option>
+                    <option value="Banfanb">0177 - BANFANB</option>
+                    <option value="Bangente">0146 - BANGENTE</option>
+                    <option value="Banplus">0174 - BANPLUS</option>
+                    <option value="BbvaProvincial">0108 - BBVA PROVINCIAL</option>
+                    <option value="DelSurBancoUniversal">0157 - DELSUR BANCO UNIVERSAL</option>
+                    <option value="InstMunDeCreditoPopular">0601 - INSTITUTO MUNICIPAL DE CREDITO POPULAR</option>
+                    <option value="BancoDigitalMicrofinanciero">0178 - N58 BANCO DIGITAL BANCO MICROFINANCIERO S.A.
+                    </option>
+                    <option value="R4BancoMicrofinanciero">0169 - R4 BANCO MICROFINANCIERO C.A.</option>
+                </select>
+                <span class="error" id="errorBank"></span>
+            </div>
+            <div class="form-group">
+                <label for="amount">Monto:</label>
+                <input type="text" id="amount" name="amount" oninput="limitarNumeroConDecimales(this)" />
+                <span class="error" id="errorAmount"></span>
+            </div>
+            <div class="form-group">
+                <label for="referenceNumber">Número de Referencia:</label>
+                <input type="number" id="referenceNumber" name="referenceNumber" />
+                <span class="error" id="errorReferenceNumber"></span>
+            </div>
+            <div class="form-group">
+                <label for="phone">Número de Celular (Pago Móvil):</label>
+                <input type="text" id="phone" name="phone" />
+                <span class="error" id="errorPhone"></span>
+            </div>
+            <div class="form-group">
+                <label for="paymentDate">Fecha de Pago:</label>
+                <input type="date" id="paymentDate" name="paymentDate" />
+                <span class="error" id="errorPaymentDate"></span>
+            </div>
+        </div>
+
+        
+        <div id="transferenciaSection" class="payment-section">
+            <h3>Transferencia Bancaria</h3>
+            <div class="form-group">
+                <label for="bankTransfer">Banco:</label>
+                <select id="bankTransfer" name="bankTransfer">
+                    <option value="">Seleccione una opción</option>
+                    <option value="BancoDeVenezuela">0102 - BANCO DE VENEZUELA</option>
+                    <option value="100%Banco">0156 - 100% BANCO</option>
+                    <option value="BancaAmiga">0172 - BANCAMIGA BANCO UNIVERSAL C.A.</option>
+                    <option value="Bancaribe">0114 - BANCARIBE</option>
+                    <option value="BancoActivo">0171 - BANCO ACTIVO</option>
+                    <option value="BancoAgricolaDeVzla">0166 - BANCO AGRICOLA DE VENEZUELA</option>
+                    <option value="BancoCaroni">0128 - BANCO CARONI</option>
+                    <option value="BancoDelTesoro">0163 - BANCO DEL TESORO</option>
+                    <option value="BancoDigitalDeLosTrabajadores">0175 - BANCO DIGITAL DE LOS TRABAJADORES, BANCO
+                        UNIVERSAL</option>
+                    <option value="BancoExterior">0175 - BANCO EXTERIOR</option>
+                    <option value="BancoFondoComun">0151 - BANCO FONDO COMUN</option>
+                    <option value="BancoInternacionalDeDesarrollo">0173 - BANCO INTERNACIONAL DE DESARROLLO</option>
+                    <option value="BancoMercantil">0105 - BANCO MERCANTIL</option>
+                    <option value="BancoNacionalDeCredito">0191 - BANCO NACIONAL DE CREDITO</option>
+                    <option value="BancoPlaza">0138 - BANCO PLAZA</option>
+                    <option value="BancoSofitasa">0137 - BANCO SOFITASA</option>
+                    <option value="BancoVenezolanoDeCredito">0104 - BANCO VENEZOLANO DE CREDITO</option>
+                    <option value="Bancrecer">0168 - BANCRECER</option>
+                    <option value="Banesco">0134 - BANESCO</option>
+                    <option value="Banfanb">0177 - BANFANB</option>
+                    <option value="Bangente">0146 - BANGENTE</option>
+                    <option value="Banplus">0174 - BANPLUS</option>
+                    <option value="BbvaProvincial">0108 - BBVA PROVINCIAL</option>
+                    <option value="DelSurBancoUniversal">0157 - DELSUR BANCO UNIVERSAL</option>
+                    <option value="InstMunDeCreditoPopular">0601 - INSTITUTO MUNICIPAL DE CREDITO POPULAR</option>
+                    <option value="BancoDigitalMicrofinanciero">0178 - N58 BANCO DIGITAL BANCO MICROFINANCIERO S.A.
+                    </option>
+                    <option value="R4BancoMicrofinanciero">0169 - R4 BANCO MICROFINANCIERO C.A.</option>
+                    
+                </select>
+                <span class="error" id="errorBankTransfer"></span>
+            </div>
+            <div class="form-group">
+                <label for="amountTransfer">Monto:</label>
+                <input type="text" id="amountTransfer" name="amountTransfer"
+                    oninput="limitarNumeroConDecimales(this)" />
+                <span class="error" id="errorAmountTransfer"></span>
+            </div>
+            <div class="form-group">
+                <label for="originAccount">Cuenta Origen (20 dígitos):</label>
+                <input type="text" id="originAccount" name="originAccount" />
+                <span class="error" id="errorOriginAccount"></span>
+            </div>
+            <div class="form-group">
+                <label for="DestinationAccount">Cuenta Destino (20 dígitos):</label>
+                <input type="text" id="destinationAccount" name="destinationAccount" />
+                <span class="error" id="errorDestinationAccount"></span>
+            </div>
+            <div class="form-group">
+                <label for="transferReference">Número de Referencia/Operación:</label>
+                <input type="number" id="transferReference" name="transferReference" />
+                <span class="error" id="errorTransferReference"></span>
+            </div>
+
+            <div class="form-group-inline">
+                <div class="inline-field docType">
+                    <label for="docType">Tipo de Documento:</label>
+                    <select id="docType" name="docType" class="estilo2">
+                        <option value="">Seleccione</option>
+                        <option value="V">V</option>
+                        <option value="P">P</option>
+                        <option value="E">E</option>
+
+                    </select>
+                    <span class="error" id="errorDocType"></span>
+                </div>
+
+
+                <div class="inline-field docNumber">
+                    <label for="docNumber">Número de Documento:</label>
+                    <input type="text" id="docNumber" name="docNumber" class="estilo1" />
+                    <span class="error" id="errorDocNumber"></span>
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <label for="transferDate">Fecha de la Operación:</label>
+                <input type="date" id="transferDate" name="transferDate" />
+                <span class="error" id="errorTransferDate"></span>
+            </div>
+        </div>
+
+     
+        <div id="zelleSection" class="payment-section">
+            <h3>Zelle</h3>
+            <div class="form-group">
+                <label for="zelleEmail">Correo Electrónico asociado a Zelle:</label>
+                <input type="email" id="zelleEmail" name="zelleEmail" />
+                <span class="error" id="errorZelleEmail"></span>
+            </div>
+            <div class="form-group">
+                <label for="amountZelle">Monto:</label>
+                <input type="text" id="amountZelle" name="amountZelle" oninput="limitarNumeroConDecimales(this)" />
+                <span class="error" id="errorAmountZelle"></span>
+            </div>
+            <div class="form-group">
+                <label for="referenceZelle">Número de Referencia:</label>
+                <input type="number" id="referenceZelle" name="referenceZelle" />
+                <span class="error" id="errorReferenceZelle"></span>
+            </div>
+            <div class="form-group">
+                <label for="zelleDate">Fecha de Pago:</label>
+                <input type="date" id="zelleDate" name="zelleDate" />
+                <span class="error" id="errorZelleDate"></span>
+            </div>
+        </div>
+
+        <div class="submit-container">
+            <button type="submit">Guardar</button>
+        </div>
+    </form>
+
+    <footer>
+        <div id="footer_logo">
+            <img src="img/logo_.png" alt="" />
+        </div>
+        <div id="academia">
+            <h2>Academia</h2>
+            <p>¿Cursos y horarios?</p>
+            <p>¿Dónde encontrarnos?</p>
+        </div>
+        <div id="informacion">
+            <h2>Información</h2>
+            <p>Preguntas frecuentes</p>
+        </div>
+    </footer>
+
+    <div class="registro">
+        <div id="linea"></div>
+        <div id="creadores">
+            <p>
+                Suma Deportes, RIF J-00000000-0 Todos los derechos reservados. Powered
+                by Lenin Manrique & Erika Díaz
+            </p>
+        </div>
+    </div>
+
+     <script src="js/registro_pago_inscripcion.js"></script>
+    
+</body>
+
+</html>

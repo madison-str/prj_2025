@@ -1,0 +1,545 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+input:focus,
+button:focus {
+  outline: none;
+  box-shadow: 0 0 0.5vw rgba(0, 123, 255, 0.5);
+}
+
+.form-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5vw;
+  min-width: 65%;
+  max-width: 66%;
+  margin: auto;
+  padding: 1.3%;
+  background-color: #fff;
+  border-radius: 1vw;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 1vw;
+  margin-bottom: 1%;
+  color: #808080;
+}
+
+.form-group input,
+.form-group select {
+  padding: 2.25%;
+  font-size: 0.95vw;
+  border: 0.1vw solid #ccc;
+  border-radius: 0.3vw;
+  box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0.5vw rgba(0, 123, 255, 0.5);
+  outline: none;
+}
+
+.submit-container {
+  grid-column: span 2;
+  text-align: center;
+  margin-top: 3%;
+}
+
+.submit-container button {
+  background-color: #007bff;
+  color: white;
+  font-size: 1.1vw;
+  padding: 0.8vw 2vw;
+  border: none;
+  border-radius: 5vw;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin: 0 auto;
+}
+
+.submit-container button:hover {
+  background-color: #0056b3;
+  transform: translateY(-3px);
+}
+
+.submit-container button:active {
+  background-color: #004085;
+  transform: translateY(0);
+}
+
+.error {
+  color: red;
+  font-size: 0.9vw;
+  margin-top: 1%;
+  display: none;
+}
+
+.user-container {
+  display: flex;
+  justify-content: space-between;
+  height: auto;
+  margin-left: 2%;
+  cursor: pointer;
+}
+
+.user-icon {
+  width: 4vw;
+  height: 4vw;
+  background-color: #f36621;
+  color: white;
+  font-size: 1.5vw;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+#img,
+.user-container p {
+  position: absolute;
+  top: 0px;
+  width: auto;
+  z-index: 100;
+  margin-top: 0.5%;
+  box-sizing: border-box;
+  right: 10%;
+}
+
+#user-icon {
+  position: absolute;
+  top: 0px;
+  z-index: 100;
+  margin-top: 0.7%;
+  box-sizing: border-box;
+  right: 5%;
+}
+
+.user-menu {
+  display: none;
+  position: absolute;
+  right: 1%;
+  min-width: 13%;
+  max-width: 13%;
+  top: 5.4vw;
+  background-color: white;
+  border-radius: 0.5vw;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  padding-bottom: 1%;
+  z-index: 10000;
+}
+
+.user-menu-header {
+  background-color: #f2f2f2;
+  padding: 1.5vw;
+  color: #7f7f7f;
+  text-align: center;
+  font-weight: lighter;
+}
+
+.user-menu-content {
+  padding: 1vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-menu-content a {
+  text-decoration: none;
+  color: #7f7f7f;
+  padding: 0.7vw;
+  text-align: center;
+  border-radius: 0.3vw;
+  margin-top: 2%;
+  transition: background 0.3s ease;
+}
+
+.user-menu-content a:hover {
+  background: #f2f2f2;
+}
+
+#img_1 {
+  width: 100%;
+  height: 90%;
+  background-image: url("../img/nadadora_1.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#img_2 {
+  width: 100%;
+  height: 90%;
+  background-image: url("../img/nadadora_2.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#img_3 {
+  width: 100%;
+  height: 90%;
+  background-image: url("../img/nadador_3.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#img_4 {
+  width: 100%;
+  height: 90%;
+  background-image: url("../img/nadadores_1.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#img_5 {
+  width: 100%;
+  height: 90%;
+  background-image: url("../img/nadadores_2.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  image-rendering: crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
+}
+
+.slideshow {
+  position: relative;
+  height: 100%;
+}
+
+.slider li img {
+  width: 100%;
+  height: 100%;
+  width: max-content;
+}
+
+.slider li,
+ul {
+  width: 100%;
+  height: 100%;
+}
+
+#cintillo {
+  padding: 0.2%;
+  width: 100%;
+  height: auto;
+  box-shadow: 0vw 0.35vw 0.7vw rgba(0, 0, 0, 0.5);
+  margin-bottom: 0.5%;
+  position: absolute;
+}
+
+.logoDiv {
+  display: flex;
+  justify-content: space-between;
+  height: auto;
+  margin-left: 2%;
+  cursor: pointer;
+}
+
+#logo {
+  position: absolute;
+  top: 0px;
+  width: 15%;
+  z-index: 100;
+  margin-top: 0.5%;
+}
+
+.buttons {
+  margin-top: 2%;
+  display: flex;
+  width: 20%;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+}
+
+#login-button:hover {
+  background-color: #012ddc49;
+}
+
+#register-button:hover {
+  background-color: #012ddcd1;
+}
+
+#login-button {
+  width: 50%;
+  padding: 3% 5%;
+  margin-right: 2%;
+  background-color: white;
+  color: #012edc;
+  border: 0.3vh solid #012edc;
+  border-radius: 0.3vw;
+  font-size: 1vw;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+#register-button {
+  width: 50%;
+  padding: 3% 5%;
+  margin-right: 2%;
+  background-color: #012edc;
+  color: white;
+  border: none;
+  border-radius: 0.3vw;
+  font-size: 1vw;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+#tituloNosotros {
+  height: auto;
+  text-align: center;
+}
+
+#tituloNosotros div {
+  word-wrap: break-word;
+  height: auto;
+  margin: 0 auto;
+  max-width: 70%;
+  color: #595959;
+  text-align: center;
+  font-size: 1.3vw;
+}
+
+#tituloNosotros div img {
+  width: 65%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.nosotros.valores div {
+  margin: 0px auto 5% auto;
+  max-width: 75%;
+}
+
+.nosotros.valores div #disciplina,
+.nosotros.valores div #compromiso,
+.nosotros.valores div #respeto,
+.nosotros.valores div #equipo,
+.nosotros.valores div #diversion {
+  margin-bottom: 0px;
+}
+
+.nosotros {
+  margin-top: 8%;
+}
+
+.nosotros {
+  display: flex;
+  flex: 1;
+  height: auto;
+  word-wrap: break-word;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.nosotros div {
+  margin: 0 auto;
+  max-width: 70%;
+}
+
+.nosotros #mision img {
+  width: 12%;
+}
+
+.nosotros #mision,
+.nosotros #vision {
+  margin-bottom: 5%;
+}
+
+.nosotros #vision img {
+  width: 12%;
+  margin-top: 2.3%;
+}
+
+.contenido_bloque1 h2 {
+  font-size: 1.3vw;
+}
+
+.contenido_bloque2 {
+  align-self: center;
+}
+
+#valores {
+  margin-top: 5%;
+  text-align: center;
+}
+
+#valores h2 {
+  font-size: 1.6vw;
+}
+
+#valores img {
+  width: 8%;
+  bottom: 5%;
+}
+
+.nosotros.valores {
+  margin-top: 3%;
+}
+
+.nosotros p,
+.nosotros.valores p {
+  color: #595959;
+  font-size: 1.25vw;
+}
+
+.nosotros.valores #disciplina img,
+.nosotros.valores #compromiso img,
+.nosotros.valores #respeto img,
+.nosotros.valores #equipo img,
+.nosotros.valores #diversion img {
+  width: 11%;
+  position: relative;
+  top: 4px;
+}
+
+.nosotros.valores #disciplina h2 {
+  color: #012edc;
+  font-size: 1.3vw;
+}
+
+.nosotros.valores #compromiso h2 {
+  color: #22bdfa;
+  font-size: 1.3vw;
+}
+
+.nosotros.valores #respeto h2 {
+  color: #012edc;
+  font-size: 1.3vw;
+}
+
+.nosotros.valores #equipo h2 {
+  color: #012edc;
+  font-size: 1.3vw;
+}
+
+.nosotros.valores #diversion h2 {
+  color: #22bdfa;
+  font-size: 1.3vw;
+}
+
+#div_motivacion {
+  background-color: #fbfcfc;
+  box-shadow: 0vw 0.35vw 0.69vw rgba(0, 0, 0, 0.3);
+  display: flex;
+}
+
+#div_motivacion img {
+  margin-left: 8%;
+  width: 30%;
+}
+
+#div_motivacion p {
+  font-size: 1.8vw;
+  margin: 0 auto;
+  max-width: 35%;
+  text-align: center;
+  color: #595959;
+  align-content: center;
+}
+
+footer {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 6%;
+  border-top: 0.2vw solid #012edc;
+  height: auto;
+}
+
+#footer_logo {
+  width: 20%;
+  display: flex;
+  align-items: center;
+  height: auto;
+}
+
+#footer_logo img {
+  width: 100%;
+}
+
+footer #academia {
+  width: 25%;
+  margin-top: 6%;
+  margin-bottom: 6%;
+}
+
+footer #academia h2 {
+  color: #012edc;
+  margin-bottom: 12%;
+  font-size: 1.5vw;
+}
+
+footer #academia p {
+  margin-bottom: 10%;
+  font-size: 1.3vw;
+}
+
+footer #informacion {
+  width: 35%;
+  margin-top: 6%;
+  margin-bottom: 6%;
+}
+
+footer #informacion h2 {
+  color: #012edc;
+  margin-bottom: 8%;
+  font-size: 1.5vw;
+}
+
+footer #informacion p {
+  margin-bottom: 8%;
+  font-size: 1.3vw;
+}
+
+.registro {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.registro p {
+  color: #012edc;
+  margin-bottom: 0.5%;
+  font-size: 1.15vw;
+}
+
+.registro p span {
+  cursor: pointer;
+}
+
+.registro #linea {
+  border: 0.1vw solid #d1d1d1;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+.registro #creadores p {
+  color: #7f7f7f;
+  margin-top: 0.5%;
+  margin-bottom: 0.5%;
+  font-size: 1.05vw;
+}

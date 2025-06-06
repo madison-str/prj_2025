@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8" />
+  <title>SumaDeportes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" type="text/css" href="css/registro_academia.css" />
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  
+</head>
+
+<body>
+  <div class="header-container">
+
+    <div style="height: 7vw; position: relative">
+      <img id="cintillo" src="img/cintilloMenu.png" alt="Cintillo" />
+    </div>
+   
+    <div class="logoDiv">
+      <img id="logo" src="img/logo.png" alt="Logo" onclick="window.location.href='index_autenticado.html'" />
+    </div>
+  
+    <div class="user-container">
+      <p style="
+            font-size: 1.2vw;
+            margin-top: 2%;
+            color: #1535d6;
+            text-decoration: underline;
+          " onclick="window.location.href='gestion.html'">
+        Gestión
+      </p>
+      <div id="user-icon" class="user-icon" onclick="toggleUserMenu()"></div>
+    </div>
+  </div>
+
+ 
+  <div class="user-menu" id="user-menu">
+    <div class="user-menu-header">
+      <p style="font-size: 1vw" id="userName">Nombre del Usuario</p>
+      <p style="font-size: 1vw" id="userRole">Rol del Usuario</p>
+    </div>
+    <div class="user-menu-content">
+      <a href="#" style="font-size: 1vw">Editar Perfil</a>
+      <a href="#" style="font-size: 1vw" onclick="logout()">Cerrar Sesión</a>
+    </div>
+  </div>
+
+  <h1 style="
+        text-align: center;
+        margin-top: 5%;
+        margin-bottom: 5%;
+        font-size: 2.5vw;
+        font-weight: lighter;
+      ">
+    Formulario de inscripción
+  </h1>
+
+  <form class="form-container" id="form-swimmer">
+    <div class="form-group">
+      <label for="documentType">Tipo de Documento:</label>
+      <input type="text" id="documentType" name="documentType" readonly />
+      <span class="error" id="errorDocumentType"></span>
+    </div>
+    <div class="form-group">
+      <label for="documentNumber">Número de Documento:</label>
+      <input type="text" id="documentNumber" name="documentNumber" readonly />
+      <span class="error" id="errorDocumentNumber"></span>
+    </div>
+    <div class="form-group">
+      <label for="firstName">Primer Nombre:</label>
+      <input type="text" id="firstName" name="firstName" readonly />
+      <span class="error" id="errorFirstName"></span>
+    </div>
+    <div class="form-group">
+      <label for="secondName">Segundo Nombre:</label>
+      <input type="text" id="secondName" name="secondName" />
+      <span class="error" id="errorSecondName"></span>
+    </div>
+    <div class="form-group">
+      <label for="firstSurename">Primer Apellido:</label>
+      <input type="text" id="firstSurename" name="firstSurename" readonly />
+      <span class="error" id="errorFirstSurename"></span>
+    </div>
+    <div class="form-group">
+      <label for="secondSurename">Segundo Apellido:</label>
+      <input type="text" id="secondSurename" name="secondSurename" />
+      <span class="error" id="errorSecondSurename"></span>
+    </div>
+    <div class="form-group">
+      <label for="representorName">Nombre Representante:</label>
+      <input type="text" id="representorName" name="representorName" />
+      <span class="error" id="errorRepresentorName"></span>
+    </div>
+    <div class="form-group">
+      <label for="representorSurename">Apellido Representante:</label>
+      <input type="text" id="representorSurename" name="representorSurename" />
+      <span class="error" id="errorRepresentorSurename"></span>
+    </div>
+    <div class="form-group">
+      <label for="age">Edad:</label>
+      <input type="number" id="age" name="age" readonly />
+      <span class="error" id="errorAge"></span>
+    </div>
+    <div class="form-group">
+      <label for="gender">Género:</label>
+      <select id="gender" name="gender">
+        <option value="">Seleccione una opción</option>
+        <option value="female">Femenino</option>
+        <option value="male">Masculino</option>
+      </select>
+      <span class="error" id="errorGender"></span>
+    </div>
+    <div class="form-group">
+      <label for="birthDate">Fecha de Nacimiento:</label>
+      <input type="date" id="birthDate" name="birthDate" readonly />
+      <span class="error" id="errorBirthDate"></span>
+    </div>
+    <div class="form-group">
+      <label for="incomingDate">Fecha de Ingreso:</label>
+      <input type="date" id="incomingDate" name="incomingDate" />
+      <span class="error" id="errorIncomingDate"></span>
+    </div>
+    <div class="form-group">
+      <label for="email">Correo Electrónico:</label>
+      <input type="email" id="email" name="email" readonly />
+      <span class="error" id="errorEmail"></span>
+    </div>
+    <div class="form-group">
+      <label for="phone">Teléfono:</label>
+      <input type="text" id="phone" name="phone" />
+      <span class="error" id="errorPhone"></span>
+    </div>
+
+    <div class="form-group">
+      <label for="team">Equipo:</label>
+      <select id="team" name="team">
+        <option value="">Seleccione una opción</option>       
+      </select>
+      <span class="error" id="errorTeam"></span>
+    </div>
+
+    <div class="submit-container">
+      <button type="submit">Guardar</button>
+    </div>
+  </form>
+
+  <footer>
+    <div id="footer_logo">
+      <img src="img/logo_.png" alt="" />
+    </div>
+    <div id="academia">
+      <h2>Academia</h2>
+      <p>¿Cursos y horarios?</p>
+      <p>¿Dónde encontrarnos?</p>
+    </div>
+    <div id="informacion">
+      <h2>Información</h2>
+      <p>Preguntas frecuentes</p>
+    </div>
+  </footer>
+
+  <div class="registro">
+    <div id="linea"></div>
+    <div id="creadores">
+      <p>
+        Suma Deportes, RIF J-00000000-0 Todos los derechos reservados. Powered
+        by Lenin Manrique & Erika Díaz
+      </p>
+    </div>
+  </div>  
+   <script src="js/registro_academia.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,782 @@
+* {
+
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+
+  height: 100%;
+  
+}
+
+body{
+  overflow-x: hidden;
+  height:100%
+}
+
+div:where(.swal2-container) div:where(.swal2-popup) {
+
+  font-size: 1vw;
+
+}
+
+.swal2-title {
+  font-size: 1.8vw; 
+}
+
+.swal-custom-popup {
+  border-radius: 0.25vw;
+  font-size: 1vw;
+}
+
+.swal-custom-title {
+  font-size: 2vw;
+}
+
+.swal-custom-button {
+  font-size: 1vw;
+  padding: 0.5vw 1vw;
+  border-radius: 0.3vw;
+}
+
+input[type="checkbox"]::before {
+  content: "✔";
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 1vw;
+  color: blue;
+  display: none;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  line-height: 1.5vw;
+}
+
+input[type="checkbox"]:checked::before {
+  display: block;
+}
+
+#cintillo {
+  padding: 0.2%;
+  width: 100vw;
+  height: auto;
+  box-shadow: 0vw 0.35vw 0.70vw rgba(0, 0, 0, 0.5);
+  margin-bottom: 0.5%;
+  position: absolute;
+}
+
+.logoDiv {
+
+  display: flex;
+  justify-content: space-between;
+  height: auto;
+  margin-left: 2%;
+  cursor: pointer
+}
+
+#logo {
+
+  position: absolute;
+  top: 0px;
+  width: 15%;
+  z-index: 100;
+  margin-top: 0.5%
+}
+
+.buttons {
+
+  margin-top: 2%;
+  display: flex;
+  width: 20%;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+}
+
+
+#login-button:hover {
+  background-color: #012ddc49;
+}
+
+#register-button:hover {
+
+  background-color: #012ddcd1;
+
+}
+
+#login-button {
+  width: 50%;
+  padding: 3% 5%;
+  margin-right: 2%;
+  background-color: white;
+  color: #012EDC;
+  border: 0.3vh solid #012EDC;
+  border-radius: 0.3vw;
+  font-size: 1vw;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+#register-button {
+  width: 50%;
+  padding: 3% 5%;
+  margin-right: 2%;
+  background-color: #012EDC;  
+  color: white;
+  border: none;
+  border-radius: 0.3vw;
+  font-size: 1vw;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.formulario_registro {
+
+  display: flex;
+}
+
+form {
+  max-width: 65%;
+  margin: 0px auto;
+  height: auto;
+  font-family: Arial, sans-serif;
+}
+
+form div {
+  font-size: 1vw; 
+}
+
+label {
+  display: block;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+/**/
+
+.flatpickr-innerContainer {
+  padding: 5%;
+  display: block;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex
+;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.flatpickr-calendar:before, .flatpickr-calendar:after {
+  position: absolute;
+  display: block;
+  pointer-events: none;
+  border:unset;
+  content: unset;
+  height: 0;
+  width: 0;
+  left: 22px;
+}
+
+.flatpickr-day.today {
+  
+  border: 0.1vw solid #959ea9;
+}
+
+.flatpickr-monthDropdown-months {
+  width: auto;
+  padding-right: 10px; /* Reduce el espacio para que no se vea la flecha */
+}
+
+/*elimina la flecha del dropdown*/
+
+.flatpickr-monthDropdown-months {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  background: none !important;
+  background-image: none !important;
+  padding-right: 0 !important;
+}
+
+/* Para IE y Edge */
+.flatpickr-monthDropdown-months::-ms-expand {
+  display: none !important;
+}
+
+/* Si la flecha se genera mediante pseudo-elemento, ocultarlo */
+.flatpickr-monthDropdown-months::after {
+  display: none !important;
+}
+/**/
+
+/**/
+
+
+.numInputWrapper span {
+  position: absolute;
+  right: 0;
+  width: 25%;
+  padding: 0 0.1vw 0 0.1vw;
+  height: 50%;
+  line-height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  border: 0.1vw solid rgba(57, 57, 57, 0.15);
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.numInputWrapper span.arrowUp:after {
+  border-left: 0.5vw solid transparent;
+  border-right: 0.5vw solid transparent;
+  border-bottom: 0.5vw solid rgba(57, 57, 57, 0.6);
+  top: 26%;
+  right: -3%;
+}
+
+.numInputWrapper span.arrowDown:after {
+  border-left: 0.5vw solid transparent;
+  border-right: 0.5vw solid transparent;
+  border-top: 0.5vw solid rgba(57, 57, 57, 0.6);
+  top: 12%;
+  right: -3%;
+  
+  
+}
+/**/
+
+.flatpickr-calendar {
+    background: transparent;
+    opacity: 0;
+    display: none;
+    text-align: center;
+    visibility: hidden;
+    padding: 0;
+    -webkit-animation: none;
+    animation: none;
+    direction: ltr;
+    border: 0;
+    font-size: 1vw;   
+    border-radius: 0.2vw;
+    position: absolute;
+    width: 25%;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    background: #fff;
+   /* -webkit-box-shadow: 0.1vw 0 0 #e6e6e6, -0.1vw 0 0 #e6e6e6, 0 0.1vw 0 #e6e6e6, 0 -0.1vw 0 #e6e6e6, 0 0.1vw 0.1vw rgba(0, 0, 0, 0.08);
+    box-shadow: 0.1vw 0 0 #e6e6e6, -0.1vw 0 0 #e6e6e6, 0 0.1vw 0 #e6e6e6, 0 -0.1vw 0 #e6e6e6, 0 0.1vw 0.1vw rgba(0, 0, 0, 0.08);*/
+}
+
+
+.flatpickr-months .flatpickr-prev-month, .flatpickr-months .flatpickr-next-month {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  text-decoration: none;
+  cursor: pointer;
+  position: relative;
+  top: 0;
+  height: 10%;
+  padding: 5%;
+  z-index: 3;
+  color: rgba(0, 0, 0, 0.9);
+  fill: rgba(0, 0, 0, 0.9);
+}
+.flatpickr-calendar.open, .flatpickr-calendar.inline {  
+    opacity: 1;
+    max-height: 100vw;
+    visibility: visible;
+}
+
+
+.flatpickr-current-month {
+  font-size: 135%;
+  line-height: inherit;
+  font-weight: 300;
+  color: inherit;
+  position: absolute;
+  width: 75%;
+  left: 12.5%;
+  padding: 2% 0 0 0;
+  line-height: 1; 
+  display: inline-block;
+  text-align: center;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+.flatpickr-months .flatpickr-month {
+  padding:2%;
+  background: transparent;
+  color: rgba(0, 0, 0, 0.9);
+  fill: rgba(0, 0, 0, 0.9);
+  height:3vw;  
+  line-height: 1;
+  text-align: center;
+  position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  overflow: hidden;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.flatpickr-months .flatpickr-prev-month svg, .flatpickr-months .flatpickr-next-month svg {
+  width: 100%;
+  height: 2vw;
+  position: absolute;
+  left: 0%;  
+  top:15%
+  
+}
+
+.flatpickr-days {
+  position: relative;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex
+;
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.flatpickr-weekdays {
+  background: transparent;
+  text-align: center;
+  overflow: hidden;
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex
+;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 10%;
+}
+
+.dayContainer {
+  padding: 0;
+  outline: 0;
+  text-align: left;
+  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  display: inline-block;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex
+;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  -ms-flex-pack: justify;
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  opacity: 1;
+}
+
+.flatpickr-day {
+  background: none;
+  border: 0.1vw solid transparent;
+  border-radius: 50%;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  color: #393939;
+  cursor: pointer;
+  font-weight: 400;
+  width: 14.2857143%;
+  -webkit-flex-basis: 14.2857143%;
+  -ms-flex-preferred-size: 14.2857143%;
+  flex-basis: 14.2857143%;
+  max-width: 30%;
+  height: 30%;
+  line-height: 300%;
+  margin: 0;
+  display: inline-block;
+  position: relative;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  text-align: center;
+}
+/*Estilos para el Select*/
+
+.select2-container--default .select2-selection:focus {
+
+  border:0.1vw solid #007bff;
+  /*border-color: #007bff; /* Cambia el color del borde cuando se enfoca */
+  outline: none;
+  box-shadow: 0 0 0.5vw rgba(0, 123, 255, 0.5);
+}
+
+.select2-dropdown {
+  border: 0.1vw solid #aaa;
+  border-radius: 0.3vw;
+  background-color: white;  
+  font-size: 1vw;  
+  width: 4.2vw !important;  
+ 
+}
+
+.select2-search--dropdown {
+  display: none;
+  
+}
+
+.select2-results__option {
+  padding: 1vw;
+}
+
+.select2-container {
+  box-sizing: border-box;
+  display: inline-block;
+  margin: 0;
+  position: relative;
+  vertical-align: middle;
+  
+}
+
+span.select2.select2-container.select2-container--default{
+
+  width: 100% !important;
+
+}
+
+.select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b {
+  border-color: transparent transparent #888 transparent;
+  border-width: 0 0.5vw 0.5vw 0.5vw;
+  
+
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+  color: #444;
+  line-height: 2vw;
+  font-size: 1vw;
+}
+
+.select2-container .select2-selection--single .select2-selection__rendered {
+  display: block;
+  padding-top:0.3vw;
+  padding-left: 1vw;
+  padding-right: 1vw;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 1vw
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+  height: 80%;
+  position: absolute;
+  top: 1%;
+  right: 1%;
+  width: 30%;
+  
+}
+
+.select2-container--default .select2-selection--single {
+  background-color: #fff;
+  border: 0.15vw solid #ccc;
+  border-radius: 0.2vw;
+}
+
+.select2-container .select2-selection--single {
+  box-sizing: border-box;
+  width: 100%;
+  cursor: pointer;
+  display: block;
+   height: auto; 
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow b {
+  border-color: #888 transparent transparent transparent;
+  border-style: solid;
+  border-width: 0.5vw 0.5vw 0 0.5vw;
+  height: 0;
+  left: 30%;  
+  position: absolute;
+  top: 50%;
+  width: 0;
+  margin-left: -25%;
+  margin-top: -10%;
+}
+
+/*Fin-Estilos para el select*/
+
+
+
+/* Aplica el color #7F7F7F a los títulos solicitados */
+label[for="nombre"],
+label[for="apellido"],
+label[for="fechaNacimiento"],
+label[for="tipoDocumento"],
+label[for="numeroDocumento"],
+label[for="correo"] {
+  color: #7F7F7F;
+  margin-top: 0.5vw;
+  margin-bottom: 0.5vw;
+}
+
+input:focus {  
+
+    border: 0.1vw solid #007bff!important;
+    box-shadow: 0 0 0.5vw rgba(0, 123, 255, 0.5);
+    outline: none;
+}
+
+button:focus{
+  outline: none;
+  box-shadow: 0 0 0.5vw rgba(0, 123, 255, 0.5);
+}
+
+input[type="text"],
+input[type="email"],
+/*input[type="date"],*/
+select {
+  height: 2.5vw;
+  width: 100%;
+  padding: 2%;
+  box-sizing: border-box;
+  border: 0.15vw solid #ccc;
+  border-radius: 0.2vw;
+  font-size: 1vw;
+}
+
+input[type="text"]::-webkit-calendar-picker-indicator {
+  display: none; /* Oculta la flecha del calendario */
+}
+
+input[type="text"] {
+  -webkit-appearance: none; /* Para que no aparezca como un campo de fecha */
+  appearance: none;
+}
+
+.input-group {
+  position: relative;
+}
+
+.input-group .input-group-text {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  right: 10px;  /* Ajusta el espacio a la derecha */
+  top: 50%;
+  padding:2%;
+  right:0px;
+  transform: translateY(-50%);
+}
+
+.documento-container {
+  display: flex;
+  gap: 2%;
+}
+
+.documento-container>div:first-child {
+  flex: 0 0 13%;
+}
+
+.documento-container>div:last-child {
+  flex: 1;
+}
+
+.boton-registro {
+  background-color: #012EDC;  
+  color: #FFFFFF;
+  border: none;
+  padding: 2%;
+  cursor: pointer;
+  font-size: 1.1vw;
+  width: 100%;
+}
+
+.boton-registro:hover {
+  opacity: 0.9;
+}
+
+.contenido_bloque1 {
+
+  width: 45%;
+  height: 100% 
+
+}
+
+.contenido_bloque1 img {
+
+  width: 100%; 
+}
+
+.contenido_bloque2 {
+
+  margin: 4.1% auto 1% auto;
+
+}
+
+.contenido_bloque2 #titulo_registro {
+
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 10%
+}
+
+.contenido_bloque2 #titulo_registro p {
+  font-size: 2.5vw;
+  text-align: center
+}
+
+.documento-container #documento {
+
+  margin-bottom: 5%
+}
+
+.contenido_bloque2 #boton_registro {
+
+  margin-top: 5%
+}
+
+.contenido_bloque2 #cuadro {
+  
+  background-color: #F2F2F2;
+  height: 13%;
+  width: 65%;
+  margin: 0 auto;
+  margin-top: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.contenido_bloque2 #cuadro p {
+
+  font-size: 1.1vw;
+}
+
+
+.contenido_bloque2 #cuadro p span {
+
+  color: #012EDC;
+  font-weight: bold;
+  text-decoration: underline;
+  cursor: pointer;
+
+}
+
+footer {
+
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 6%;
+  border-top: 0.2vw solid #012EDC;
+  height: auto;
+}
+
+#footer_logo {
+  width: 20%;    
+  display: flex;
+  align-items: center;
+  height: auto
+}
+
+#footer_logo img {
+
+  width: 100%
+}
+
+footer #academia {
+  width: 25%;
+  margin-top: 6%;
+  margin-bottom: 6%
+}
+
+footer #academia h2 {
+  color: #012EDC;
+  margin-bottom: 12%;
+  font-size: 1.5vw
+}
+
+footer #academia p {
+  margin-bottom: 10%;
+  font-size: 1.3vw
+}
+
+footer #informacion {
+  width: 35%;
+  margin-top: 6%;
+  margin-bottom: 6%;
+}
+
+footer #informacion h2 {
+  color: #012EDC;
+  margin-bottom: 8%;
+  font-size: 1.5vw
+}
+
+footer #informacion p {
+  margin-bottom: 8%;
+  font-size: 1.3vw
+}
+
+.registro {
+
+  display: flex;
+  flex-direction: column;
+  text-align: center
+}
+
+.registro p {
+  color: #012EDC;
+  margin-bottom: 0.5%;
+  font-size: 1.15vw
+}
+
+.registro p span {
+
+  cursor: pointer
+}
+
+.registro #linea {
+  border: 0.1vw solid #D1D1D1;
+  margin-left: 2%;
+  margin-right: 2%;
+
+}
+
+.registro #creadores p {
+  color: #7F7F7F;
+  margin-top: 0.5%;
+  margin-bottom: 0.5%;
+  font-size: 1.05vw;
+}
+
