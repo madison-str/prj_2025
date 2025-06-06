@@ -174,8 +174,10 @@ async function loadEvents() {
   let data = {};
 
   try {
-    const response = await fetch(
-      "https://c986-44-201-249-73.ngrok-free.app/tests/getList",
+    /*const response = await fetch(
+      "https://c986-44-201-249-73.ngrok-free.app/tests/getList",*/
+      const response = await fetch(
+      "http://localhost:8080/tests/getList",
       {
         method: "POST",
         headers: {
@@ -276,8 +278,10 @@ async function loadTournaments() {
   const tournamentSelect = document.getElementById("tournament");
 
   try {
-    const response = await fetch(
-      "https://c986-44-201-249-73.ngrok-free.app/tournament/getList",
+    /*const response = await fetch(
+      "https://c986-44-201-249-73.ngrok-free.app/tournament/getList",*/
+      const response = await fetch(
+      "http://localhost:8080/team/getAll/tournament/getList",
       {
         method: "POST",
         headers: {
@@ -338,8 +342,10 @@ document
       endDate: document.getElementById("endDate").value,
     };
     try {
+      /*const response = await fetch(
+        "https://c986-44-201-249-73.ngrok-free.app/events/create",*/
       const response = await fetch(
-        "https://c986-44-201-249-73.ngrok-free.app/events/create",
+        "http://localhost:8080/events/create",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

@@ -304,7 +304,8 @@ const form = document.querySelector("form");
             try {
 
                 let data = {};               
-                const response = await fetch("https://c986-44-201-249-73.ngrok-free.app/master-tournaments/getAll", {
+                /*const response = await fetch("https://c986-44-201-249-73.ngrok-free.app/master-tournaments/getAll", {*/
+                const response = await fetch("http://localhost:8080/master-tournaments/getAll", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
@@ -377,7 +378,8 @@ const form = document.querySelector("form");
 
             try {
               
-                const response = await fetch("https://c986-44-201-249-73.ngrok-free.app/tournament/create", {
+                /*const response = await fetch("https://c986-44-201-249-73.ngrok-free.app/tournament/create", {*/
+                const response = await fetch("http://localhost:8080/tournament/create", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(requestData)

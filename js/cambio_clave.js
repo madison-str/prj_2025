@@ -182,8 +182,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     try {
 
-      const response = await fetch("https://c986-44-201-249-73.ngrok-free.app/change-password", {
-        
+     /* const response = await fetch("https://c986-44-201-249-73.ngrok-free.app/change-password", {*/
+
+     const response = await fetch("http://localhost:8080/change-password", {        
         method: "POST",
         headers: {
           "Content-Type": "application/json",

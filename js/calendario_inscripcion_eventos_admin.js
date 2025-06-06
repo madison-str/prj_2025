@@ -105,8 +105,10 @@ document.addEventListener("change", async function (event) {
 
     if (checkbox.checked) {
       try {
+        /*const response = await fetch(
+          "https://c986-44-201-249-73.ngrok-free.app/mark/getMark",*/
         const response = await fetch(
-          "https://c986-44-201-249-73.ngrok-free.app/mark/getMark",
+          "http://localhost:8080/mark/getMark",
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -224,8 +226,10 @@ document
     };
 
     try {
+      /*const response = await fetch(
+        "https://c986-44-201-249-73.ngrok-free.app/eventsregister/create",*/
       const response = await fetch(
-        "https://c986-44-201-249-73.ngrok-free.app/eventsregister/create",
+        "http://localhost:8080/eventsregister/create",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -314,8 +318,10 @@ async function getOtherEventsCategories(age, gender, resultado) {
   };
 
   try {
-    const response = await fetch(
-      "https://c986-44-201-249-73.ngrok-free.app/events/outOfCategory",
+    /*const response = await fetch(
+      "https://c986-44-201-249-73.ngrok-free.app/events/outOfCategory",*/
+      const response = await fetch(
+      "http://localhost:8080/events/outOfCategory",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -342,8 +348,10 @@ async function getFinishedEvents(age, gender, resultado) {
   };
 
   try {
+    /*const response = await fetch(
+      "https://c986-44-201-249-73.ngrok-free.app/events/finished",*/
     const response = await fetch(
-      "https://c986-44-201-249-73.ngrok-free.app/events/finished",
+      "http://localhost:8080/events/finished",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -370,8 +378,10 @@ async function getEventsByDate(age, gender, resultado) {
   };
 
   try {
+    /*const response = await fetch(
+      "https://c986-44-201-249-73.ngrok-free.app/events/programmed",*/
     const response = await fetch(
-      "https://c986-44-201-249-73.ngrok-free.app/events/programmed",
+      "http://localhost:8080/events/programmed",
       {
         method: "POST",
         headers: {
@@ -423,8 +433,10 @@ async function searchSwimmer() {
   };
 
   try {
-    const response = await fetch(
-      "https://c986-44-201-249-73.ngrok-free.app/swimmer/getById",
+    /*const response = await fetch(
+      "https://c986-44-201-249-73.ngrok-free.app/swimmer/getById",*/
+      const response = await fetch(
+      "http://localhost:8080/swimmer/getById",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
